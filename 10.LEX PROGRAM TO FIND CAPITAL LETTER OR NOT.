@@ -1,13 +1,13 @@
 %{
-#include<stdio.h>
+#include <stdio.h>
 %}
 %%
-[A-Z]+ {printf("\n%s is a capital",yytext);}
-[^A-Z].+ {printf("\n%s is a small",yytext);}
+[a-z] {printf("%c",yytext[0]-32);}
+. {}
 %%
-
-int yywrap(){}
+int yywrap(void){}
 int main()
 {
-while(yylex());
+printf("\nenter the string : ");
+yylex();
 }
